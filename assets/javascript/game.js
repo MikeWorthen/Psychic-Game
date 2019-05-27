@@ -14,7 +14,6 @@ randomLetter = keyChoices[Math.floor(Math.random() * keyChoices.length)];
 }
 
 //PLAYERS INPUT
-
 document.onkeyup = function (event) {
       var letterGuess = event.key;
 
@@ -24,6 +23,10 @@ document.onkeyup = function (event) {
             left = 9;
             letterUsed = [];
             alert("Winner, Winner, Chicken Dinner!")
+      } else {
+      //DISPLAY INCORRECT LETTERS
+            letterUsed.push(letterGuess);
+            document.getElementById('soFar').innerHTML = "Guesses so far: " + letterUsed;
 
       }
       
@@ -31,7 +34,6 @@ document.onkeyup = function (event) {
       random();
       if (letterGuess !== randomLetter) {
             left--;
-
       }
 
       //RESET
@@ -40,16 +42,6 @@ document.onkeyup = function (event) {
             letterUsed = []
             left = 9;
             alert("You Lose!!!");
-      }
-
-      //INCORRECT GUESSES - OUTPUT
-      if (letterUsed.indexOf(letterGuess) >= 0) {
-
-      } else {
-            //DISPLAY INCORRECT LETTERS
-            letterUsed.push(letterGuess);
-            document.getElementById('soFar').innerHTML = "Guesses so far: " + letterUsed;
-
       }
 
       //OUTPUT TO DOM
