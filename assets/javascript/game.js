@@ -10,7 +10,6 @@ var randomLetter = randomLetter;
 //COMPUTERS RANDOM LETTER
 function random() {
 randomLetter = keyChoices[Math.floor(Math.random() * keyChoices.length)];
-console.log(randomLetter);
 
 }
 
@@ -46,8 +45,7 @@ document.onkeyup = function (event) {
       } else {
             //DISPLAY INCORRECT LETTERS
             letterUsed.push(letterGuess);
-            document.getElementById('soFar').innerHTML = letterUsed;
-            console.log(letterUsed);
+            document.getElementById('soFar').innerHTML = "Guesses so far: " + letterUsed;
 
       }
      
