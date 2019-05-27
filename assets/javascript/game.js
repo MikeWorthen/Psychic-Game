@@ -14,6 +14,7 @@ randomLetter = keyChoices[Math.floor(Math.random() * keyChoices.length)];
 }
 
 //PLAYERS INPUT
+
 document.onkeyup = function (event) {
       var letterGuess = event.key;
 
@@ -22,9 +23,10 @@ document.onkeyup = function (event) {
             wins++;
             left = 9;
             letterUsed = [];
+            alert("Winner, Winner, Chicken Dinner!")
 
       }
-
+      
       //INCORRECT GUESSES
       random();
       if (letterGuess !== randomLetter) {
@@ -33,10 +35,11 @@ document.onkeyup = function (event) {
       }
 
       //RESET
-      if (left == 0) {
+      if (left <= 0) {
             losses++;
             letterUsed = []
             left = 9;
+            alert("You Lose!!!");
       }
 
       //INCORRECT GUESSES - OUTPUT
@@ -48,10 +51,10 @@ document.onkeyup = function (event) {
             document.getElementById('soFar').innerHTML = "Guesses so far: " + letterUsed;
 
       }
-     
 
       //OUTPUT TO DOM
     document.getElementById("wins").innerHTML = "Wins: " + wins;
     document.getElementById("losses").innerHTML = "Losses: " + losses;
     document.getElementById("left").innerHTML = "Guesses left: " + left;
 }
+
