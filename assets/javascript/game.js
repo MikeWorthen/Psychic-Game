@@ -9,7 +9,7 @@ var randomLetter = randomLetter;
 
 //COMPUTERS RANDOM LETTER
 function random() {
-randomLetter = keyChoices[Math.floor(Math.random() * keyChoices.length)];
+      randomLetter = keyChoices[Math.floor(Math.random() * keyChoices.length)];
 
 }
 
@@ -24,12 +24,12 @@ document.onkeyup = function (event) {
             letterUsed = [];
             alert("Winner, Winner, Chicken Dinner!")
       } else {
-      //DISPLAY INCORRECT LETTERS
+            //DISPLAY INCORRECT LETTERS
             letterUsed.push(letterGuess);
             document.getElementById('soFar').innerHTML = "Guesses so far: " + letterUsed;
 
       }
-      
+
       //INCORRECT GUESSES
       random();
       if (letterGuess !== randomLetter) {
@@ -43,10 +43,15 @@ document.onkeyup = function (event) {
             left = 9;
             alert("You Lose!!!");
       }
+      outputToDom();
 
-      //OUTPUT TO DOM
-    document.getElementById("wins").innerHTML = "Wins: " + wins;
-    document.getElementById("losses").innerHTML = "Losses: " + losses;
-    document.getElementById("left").innerHTML = "Guesses left: " + left;
 }
 
+
+function outputToDom() {
+      document.getElementById("wins").innerHTML = "Wins: " + wins;
+      document.getElementById("losses").innerHTML = "Losses: " + losses;
+      document.getElementById("left").innerHTML = "Guesses left: " + left;
+}
+
+      outputToDom();
